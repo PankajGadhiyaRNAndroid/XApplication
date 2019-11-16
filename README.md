@@ -31,11 +31,11 @@ react-native run-android
 
 ## Output Android
 
-![Notification snap](snap1.png)
+![Notification snap](android_home.jpg)
 
-![Notification snap](snap2.png)
+![Notification snap](android_detail.jpg)
 
-![Notification snap](snap2.png)
+![Notification snap](android_drawer.jpg)
 
 ## Output IOS
 
