@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, FlatList, Image, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, Image, TextInput, Alert } from 'react-native';
 import styles from './StyleHome';
 import { initialHomeRequest, homeRequest } from '../../container/homecontainer/Actions';
 import { Actions } from 'react-native-router-flux';
@@ -42,7 +42,10 @@ class Home extends Component {
                 loadingHome: nextProps.hLoading
             };
         } else {
-            return null;
+            return {
+                errorData: nextProps.hFail,
+                loadingHome: nextProps.hLoading
+            };
         }
     }
 
@@ -64,6 +67,15 @@ class Home extends Component {
             this.setState({
                 successData: this.state.successData,
                 loadingHome: this.state.loadingHome
+            });
+        }
+
+        if (prevProps.hFail !== this.state.errorData) {
+            this.setState({
+                errorData: this.state.errorData,
+                loadingHome: this.state.loadingHome
+            }, () => {
+                Alert.alert(JSON.stringify(this.state.errorData));
             });
         }
     }
